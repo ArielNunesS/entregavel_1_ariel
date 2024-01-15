@@ -2,19 +2,38 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //ESCREVA SEU CÓDIGO AQUI!!
-let resultado;
-
-function Calculadora(num1, num2, operador){
-  if(operador == '+' || operador == '-' || operador == '*' || operador == '/'){
-    resultado = eval(num1 + (operador) + num2)
-   } else if(operador = 'e'){
-  visor.value = eval(num1 ** num2)
-    }
-      if(resultado == undefined || visor.value > 1000000){
-        resultado === 'ERRO'
-      }
-          return resultado
-  }
+function Calculadora(numero1, numero2, operador){
+  let resultado;
+  let num1 = parseInt(numero1)
+  let num2 = parseInt(numero2)
+  
+    switch(operador)  {
+      case '+':
+        resultado = num1 + num2
+        break;
+      case '-':
+        resultado = num1 - num2
+        break;
+      case '*':
+        resultado = num1 * num2
+        break;
+      case '/':
+        resultado = num1 / num2
+        break;
+      case 'e':
+        let contador = 1
+        resultado = num1 * num1
+        while(contador < num2 - 1){
+          resultado = resultado * num1
+          contador++
+        }
+        break;
+    }  
+  
+  if (resultado == undefined || resultado > 1000000){
+    resultado = 'ERRO'
+  }	return resultado
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
